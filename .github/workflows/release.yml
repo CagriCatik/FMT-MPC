@@ -25,7 +25,7 @@ jobs:
       - name: Run semantic-release
         env:
           PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             semantic-release version --noop
