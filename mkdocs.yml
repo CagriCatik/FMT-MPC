@@ -81,9 +81,9 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/example/rrtstar_mpc_motion_planning
+      link: https://github.com/CagriCatik/FMT-MPC
   generator: false
-  copyright: "Copyright \u00a9 2024 RRT* MPC Motion Planning"
+  copyright: "Copyright \u00a9 2024 FMT MPC Motion Planning"
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
