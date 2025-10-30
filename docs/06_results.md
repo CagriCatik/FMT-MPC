@@ -16,10 +16,10 @@ It typically uses a shorter planning horizon and a higher acceleration limit.
 
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="assets/results/aggressive/fmt_debug.png" width="48%" />
-  <img src="assets/results/aggressive/fmt_exploration.gif" width="48%" />
-  <img src="assets/results/aggressive/run.gif" width="48%" />
-  <img src="assets/results/aggressive/run.png" width="48%" />
+  <img src="../assets/results/aggressive/fmt_debug.png" width="48%" />
+  <img src="../assets/results/aggressive/fmt_exploration.gif" width="48%" />
+  <img src="../assets/results/aggressive/run.gif" width="48%" />
+  <img src="../assets/results/aggressive/run.png" width="48%" />
 </div>
 
 ---
@@ -30,10 +30,10 @@ The **Bus** scenario simulates a long-wheelbase vehicle with limited steering an
 It demonstrates the planner’s ability to handle nonholonomic constraints in large vehicles operating in narrow spaces.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="assets/results/bus/fmt_debug_bus.png" width="48%" />
-  <img src="assets/results/bus/fmt_exploration_bus.gif" width="48%" />
-  <img src="assets/results/bus/run_bus.gif" width="48%" />
-  <img src="assets/results/bus/run_bus.png" width="48%" />
+  <img src="../assets/results/bus/fmt_debug_bus.png" width="48%" />
+  <img src="../assets/results/bus/fmt_exploration_bus.gif" width="48%" />
+  <img src="../assets/results/bus/run_bus.gif" width="48%" />
+  <img src="../assets/results/bus/run_bus.png" width="48%" />
 </div>
 
 ---
@@ -44,10 +44,10 @@ The **Conservative** configuration favors stability and safety, maintaining low 
 It is designed to simulate cautious driving styles or heavy-load vehicles that must minimize control effort.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="assets/results/conservative/fmt_debug.png" width="48%" />
-  <img src="assets/results/conservative/fmt_exploration.gif" width="48%" />
-  <img src="assets/results/conservative/run.gif" width="48%" />
-  <img src="assets/results/conservative/run.png" width="48%" />
+  <img src="../assets/results/conservative/fmt_debug.png" width="48%" />
+  <img src="../assets/results/conservative/fmt_exploration.gif" width="48%" />
+  <img src="../assets/results/conservative/run.gif" width="48%" />
+  <img src="../assets/results/conservative/run.png" width="48%" />
 </div>
 
 ---
@@ -58,10 +58,10 @@ The **Sport** setup models agile and responsive handling behavior suitable for f
 It typically operates with higher steering gains, moderate acceleration, and sharper trajectory curvature.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="assets/results/sport/fmt_debug_sport.png" width="48%" />
-  <img src="assets/results/sport/fmt_exploration_sport.gif" width="48%" />
-  <img src="assets/results/sport/run_sport.gif" width="48%" />
-  <img src="assets/results/sport/run_sport.png" width="48%" />
+  <img src="../assets/results/sport/fmt_debug_sport.png" width="48%" />
+  <img src="../assets/results/sport/fmt_exploration_sport.gif" width="48%" />
+  <img src="../assets/results/sport/run_sport.gif" width="48%" />
+  <img src="../assets/results/sport/run_sport.png" width="48%" />
 </div>
 
 ---
@@ -71,8 +71,8 @@ It typically operates with higher steering gains, moderate acceleration, and sha
 The **Van** configuration demonstrates moderate-speed motion with medium steering and acceleration limits, representing a balanced driving profile between aggressive and conservative modes.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="assets/results/van/fmt_debug_van.png" width="48%" />
-  <img src="assets/results/van/fmt_exploration_van.gif" width="48%" />
-  <img src="assets/results/van/run_van.gif" width="48%" />
-  <img src="assets/results/van/run_van.png" width="48%" />
+  <img src="../assets/results/van/fmt_debug_van.png" width="48%" />
+  <img src="../assets/results/van/fmt_exploration_van.gif" width="48%" />
+  <img src="../assets/results/van/run_van.gif" width="48%" />
+  <img src="../assets/results/van/run_van.png" width="48%" />
 </div>

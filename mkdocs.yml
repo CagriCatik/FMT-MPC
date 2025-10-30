@@ -1,6 +1,8 @@
 site_name: FMT-MPC
 site_description: Documentation for the Fast Marching Tree planning, control, and simulation stack.
 repo_url: https://github.com/CagriCatik/FMT-MPC
+edit_uri: edit/main/docs/
+
 
 nav:
   - Home: index.md
@@ -58,8 +60,6 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.arithmatex:
-      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -68,6 +68,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tilde
+
 
 plugins:
   - search
@@ -86,7 +87,6 @@ extra:
   copyright: "Copyright \u00a9 2024 FMT MPC Motion Planning"
 
 extra_css:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 extra_javascript:
