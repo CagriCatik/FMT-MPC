@@ -1,14 +1,15 @@
-site_name: Fast Marching Tree Stack
+site_name: FMT-MPC
 site_description: Documentation for the Fast Marching Tree planning, control, and simulation stack.
-repo_url: https://github.com/example/Fast-Marching-Tree
+repo_url: https://github.com/CagriCatik/FMT-MPC
 
 nav:
-  - Introduction: docs/01_introduction.md
-  - System Architecture: docs/02_system_architecture.md
-  - Planning & Control: docs/03_planning_and_control.md
-  - Simulation & Visualisation: docs/04_simulation_and_visualization.md
-  - Configuration & CLI: docs/05_configuration_and_cli.md
-  - Results: docs/06_results.md
+  - Home: index.md
+  - Introduction: 01_introduction.md
+  - System Architecture: 02_system_architecture.md
+  - Planning & Control: 03_planning_and_control.md
+  - Simulation & Visualisation: 04_simulation_and_visualization.md
+  - Configuration & CLI: 05_configuration_and_cli.md
+  - Results: 06_results.md
 
 theme:
   name: material
@@ -48,6 +49,8 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -75,9 +78,10 @@ extra:
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
-  - docs/assets/js/math-init.js
+  - assets/js/math-init.js
