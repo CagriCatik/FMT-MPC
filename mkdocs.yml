@@ -1,7 +1,6 @@
 site_name: FMT-MPC
 site_description: Documentation for the Fast Marching Tree planning, control, and simulation stack.
 repo_url: https://github.com/CagriCatik/FMT-MPC
-use_directory_urls: false
 
 nav:
   - Home: index.md

@@ -1,6 +1,7 @@
 name: Continuous Integration
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
@@ -9,10 +10,12 @@ jobs:
   lint:
     uses: ./.github/workflows/lint.yml
     secrets: inherit
+
   test:
     needs: lint
     uses: ./.github/workflows/test.yml
     secrets: inherit
+
   build:
     needs: [lint, test]
     uses: ./.github/workflows/build.yml
