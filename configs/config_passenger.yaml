@@ -1,0 +1,63 @@
+# File: config_passenger.yaml
+# Purpose: Typical passenger car: balanced speeds, moderate acceleration, standard clearances.
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.2
+  safety_margin: 1.0
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+
+planner:
+  sample_count: 480                # Slightly higher than base for smoother results
+  connection_radius: 9.0
+  goal_bias: 0.27
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 6.0               # Target planning speed [m/s]
+
+tracker:
+  horizon: 10
+  timestep: 0.2
+  q_weights: [1.6, 1.1, 0.6, 0.25]
+  r_weights: [0.1, 0.05]
+  cruise_speed: 7.0                # Desired cruise speed [m/s]
+  slowdown_radius: 4.5
+
+vehicle:
+  wheelbase: 2.80
+  max_steer: 0.5
+  max_accel: 3.0
+  max_decel: -5.0
+
+simulation:
+  dt: 0.1
+  duration: 12.0
+  log_states: false
+
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/passenger
+  plot_filename: run_passenger.png
+  animation_filename: run_passenger.gif
+  map_png: artifacts/maps/passenger.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug_passenger.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration_passenger.gif
+  vehicle_draw:
+    wheelbase: 2.80
+    width: 1.75
+    length: 4.60
+    front_overhang: 0.90
+    rear_overhang: 0.95
+    wheel_track: 1.55
+    tire_radius: 0.35
+    tire_width: 0.25

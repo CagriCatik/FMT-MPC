@@ -1,0 +1,55 @@
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.2
+  safety_margin: 1.0
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+planner:
+  sample_count: 420
+  connection_radius: 8.0
+  goal_bias: 0.25
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 4.0
+tracker:
+  horizon: 10
+  timestep: 0.2
+  q_weights: [1.5, 1.0, 0.5, 0.2]
+  r_weights: [0.1, 0.05]
+  cruise_speed: 5.0
+  slowdown_radius: 4.0
+vehicle:
+  wheelbase: 2.7
+  max_steer: 0.5
+  max_accel: 2.5
+  max_decel: -4.0
+simulation:
+  dt: 0.1
+  duration: 12.0
+  log_states: false
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/conservative
+  plot_filename: run.png
+  animation_filename: run.gif
+  map_png: artifacts/maps/conservative.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration.gif
+  vehicle_draw:
+    wheelbase: 2.7
+    width: 1.65
+    length: 4.4
+    front_overhang: 0.9
+    rear_overhang: 0.9
+    wheel_track: 1.5
+    tire_radius: 0.35
+    tire_width: 0.25

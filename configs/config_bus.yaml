@@ -1,0 +1,63 @@
+# File: config_bus.yaml
+# Purpose: City bus: very long wheelbase, wide turns, early slowdown.
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.5
+  safety_margin: 1.2
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+
+planner:
+  sample_count: 700
+  connection_radius: 11.5
+  goal_bias: 0.22
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 4.2
+
+tracker:
+  horizon: 14
+  timestep: 0.2
+  q_weights: [1.9, 1.3, 0.6, 0.25]
+  r_weights: [0.1, 0.05]
+  cruise_speed: 5.2
+  slowdown_radius: 7.5
+
+vehicle:
+  wheelbase: 4.2
+  max_steer: 0.32
+  max_accel: 1.4
+  max_decel: -4.5
+
+simulation:
+  dt: 0.1
+  duration: 16.0
+  log_states: false
+
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/bus
+  plot_filename: run_bus.png
+  animation_filename: run_bus.gif
+  map_png: artifacts/maps/bus.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug_bus.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration_bus.gif
+  vehicle_draw:
+    wheelbase: 4.2
+    width: 2.50
+    length: 12.0
+    front_overhang: 2.5
+    rear_overhang: 3.0
+    wheel_track: 2.1
+    tire_radius: 0.50
+    tire_width: 0.35

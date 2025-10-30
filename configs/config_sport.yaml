@@ -1,0 +1,63 @@
+# File: config_sport.yaml
+# Purpose: High-performance sport vehicle: faster planning/tracking, sharper steering, higher accel/decel.
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.1          # Sport vehicle is precise; slightly lower inflation
+  safety_margin: 0.8               # Tighter clearance
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+
+planner:
+  sample_count: 600                # More samples for higher-speed feasibility
+  connection_radius: 10.0          # Larger radius to find faster, smoother connections
+  goal_bias: 0.30
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 10.0              # Target speed [m/s] for time-parameterization
+
+tracker:
+  horizon: 8                       # Shorter horizon for agility
+  timestep: 0.15                   # Finer control updates
+  q_weights: [1.8, 1.2, 0.7, 0.3]  # Slightly higher state penalties at speed
+  r_weights: [0.12, 0.06]          # Keep control effort modest
+  cruise_speed: 12.0               # Desired cruise speed [m/s]
+  slowdown_radius: 3.0             # Later braking due to better dynamics
+
+vehicle:
+  wheelbase: 2.65                  # Shorter wheelbase aids agility
+  max_steer: 0.6                   # More steering range [rad]
+  max_accel: 5.0                   # Strong acceleration
+  max_decel: -7.0                  # Strong braking
+
+simulation:
+  dt: 0.08                         # Smaller sim step for stability at high speeds
+  duration: 12.0                    # Shorter run typical for performance tests
+  log_states: false
+
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/sport
+  plot_filename: run_sport.png
+  animation_filename: run_sport.gif
+  map_png: artifacts/maps/sport.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug_sport.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration_sport.gif
+  vehicle_draw:
+    wheelbase: 2.65
+    width: 1.80
+    length: 4.30
+    front_overhang: 0.85
+    rear_overhang: 0.85
+    wheel_track: 1.55
+    tire_radius: 0.35
+    tire_width: 0.25

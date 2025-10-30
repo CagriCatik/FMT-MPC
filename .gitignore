@@ -1,0 +1,25 @@
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+.env
+.venv
+.idea/
+.vscode/
+fig/
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# Build outputs
+build/
+dist/
+
+# Local simulation outputs
+artifacts/*
+!artifacts/.gitignore
+!output/
+
+# Locally generated map caches
+maps/generated/
+maps/*_raw.png
+maps/*_legend_axes.png

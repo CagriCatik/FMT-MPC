@@ -1,0 +1,64 @@
+# Aggressive configuration for fast and reactive motion planning
+
+start: [5.0, 5.0, 0.0]        # Initial position [x, y, yaw]
+goal: [72.0, 32.0, 0.0]       # Target position [x, y, yaw]
+obstacles: []                  # Empty obstacle list; use map for static obstacles
+
+map:
+  resolution: 0.2              # Map grid resolution (meters per cell)
+  obstacle_inflation: 0.6      # Reduced inflation for tighter navigation around obstacles
+  safety_margin: 0.3           # Smaller safety buffer for aggressive maneuvering
+  validate_corridor: true      # Ensures planned corridor is collision-free
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]           # Map origin in world coordinates
+
+planner:
+  sample_count: 600            # Slightly reduced sample count for faster planning
+  connection_radius: 7.0       # Smaller connection radius for more direct paths
+  goal_bias: 0.25               # Strong goal bias for faster convergence toward goal
+  rewiring: true               # Enable FMT*/RRT* style path optimization
+  pruning: true                # Remove redundant nodes to simplify the path
+  smoothing: true              # Apply path smoothing for driveable trajectories
+  nominal_speed: 12.0          # Increased desired planning speed (m/s)
+
+tracker:
+  horizon: 4                   # Shorter prediction horizon for quicker reactions
+  timestep: 0.2                # Smaller time step for tighter control updates
+  q_weights: [1.2, 1.2, 0.6, 0.6]  # Higher weights for position, heading, and velocity accuracy
+  r_weights: [0.04, 0.03]      # Lower control penalties to allow aggressive steering/throttle
+  cruise_speed: 22.0           # High nominal cruise speed (m/s)
+  slowdown_radius: 3.0         # Smaller slowdown zone for late braking and sharper turns
+
+vehicle:
+  wheelbase: 2.8               # Distance between front and rear axles (meters)
+  max_steer: 0.6               # Increased steering limit for sharper turns (radians)
+  max_accel: 5.0               # Higher maximum acceleration (m/s^2)
+  max_decel: -7.5              # Stronger braking for sudden stops (m/s^2)
+
+simulation:
+  dt: 0.08                     # Smaller integration step for numerical stability at high speed
+  duration: 10.0               # Shorter total simulation duration (seconds)
+  log_states: false            # Disable state logging for performance
+
+visualization:
+  enable_plots: true           # Generate plots of trajectory and performance metrics
+  animate: true                # Enable animation playback of simulation
+  dashboard: false             # Disable dashboard UI for faster rendering
+  output_dir: artifacts/aggressive  # Output directory for artifacts
+  plot_filename: run.png       # Plot output file
+  animation_filename: run.gif  # Simulation animation file
+  map_png: artifacts/maps/aggressive.png  # Map output with overlays
+  show_planner_debug: true     # Enable visualization of sampling and connection graph
+  planner_debug_filename: fmt_debug.png   # Planner debug image output
+  animate_planner: true        # Animate planner exploration process
+  planner_animation_filename: fmt_exploration.gif  # Planner animation output
+
+  vehicle_draw:
+    wheelbase: 2.9             # Vehicle visualization parameter (approx. same as actual)
+    width: 1.7                 # Vehicle body width (meters)
+    length: 4.6                # Vehicle body length (meters)
+    front_overhang: 1.0        # Front body extension beyond axle (meters)
+    rear_overhang: 1.0         # Rear body extension beyond axle (meters)
+    wheel_track: 1.55          # Distance between left and right wheels (meters)
+    tire_radius: 0.36          # Tire radius (meters)
+    tire_width: 0.26           # Tire width (meters)

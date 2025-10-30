@@ -1,0 +1,63 @@
+# File: config_van.yaml
+# Purpose: Cargo/passenger van: larger geometry, lower speeds, gentler steering, more clearance.
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.4          # More inflation for larger footprint
+  safety_margin: 1.2               # Extra margin for swept volume
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+
+planner:
+  sample_count: 500                # More samples to accommodate larger turning radius
+  connection_radius: 9.5
+  goal_bias: 0.25
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 4.5               # Lower planning speed [m/s]
+
+tracker:
+  horizon: 12                      # Longer horizon for smoother maneuvers
+  timestep: 0.2
+  q_weights: [1.7, 1.2, 0.6, 0.25]
+  r_weights: [0.1, 0.05]
+  cruise_speed: 5.5                # Conservative cruise speed [m/s]
+  slowdown_radius: 6.0             # Slow down earlier due to mass/size
+
+vehicle:
+  wheelbase: 3.20
+  max_steer: 0.4
+  max_accel: 2.0
+  max_decel: -4.5
+
+simulation:
+  dt: 0.1
+  duration: 14.0                   # Slightly longer to reach goal at lower speed
+  log_states: false
+
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/van
+  plot_filename: run_van.png
+  animation_filename: run_van.gif
+  map_png: artifacts/maps/van.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug_van.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration_van.gif
+  vehicle_draw:
+    wheelbase: 3.20
+    width: 1.95
+    length: 5.20
+    front_overhang: 1.00
+    rear_overhang: 1.10
+    wheel_track: 1.70
+    tire_radius: 0.40
+    tire_width: 0.30

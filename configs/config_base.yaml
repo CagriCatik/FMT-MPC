@@ -1,0 +1,63 @@
+# File: config_base_commented.yaml
+# Purpose: Baseline config with descriptive comments added.
+start: [5.0, 5.0, 0.0]        # [x [m], y [m], yaw [rad]] start pose in map frame
+goal: [72.0, 32.0, 0.0]       # [x [m], y [m], yaw [rad]] goal pose in map frame
+obstacles: []                  # Optional explicit obstacle list; empty uses map bitmap only
+
+map:
+  resolution: 0.2              # Grid cell size [m/pixel] for bitmap-based planning/collision
+  obstacle_inflation: 1.2      # Inflate obstacles by this radius [m] to add clearance
+  safety_margin: 1.0           # Additional safety margin [m] around planned corridor
+  validate_corridor: true      # Check path corridor for collisions after smoothing
+  bitmap_path: maps/map_raw.png # Occupancy or navmap image path
+  origin: [0.0, 0.0]           # Map origin [m] of bitmap in world frame (bottom-left or defined convention)
+
+planner:
+  sample_count: 420            # Number of samples for roadmap/tree construction (FMT*/RRT*/PRM*)
+  connection_radius: 8.0       # Max neighbor radius [m] when connecting samples
+  goal_bias: 0.25              # Probability to sample near goal (for RRT-like planners)
+  rewiring: true               # Enable rewiring (RRT*/FMT* optimality)
+  pruning: true                # Prune dominated/invalid nodes during search
+  smoothing: true              # Apply path smoothing/post-processing
+  nominal_speed: 4.0           # Target path speed [m/s] used for time-parameterization
+
+tracker:
+  horizon: 10                  # MPC/LQR horizon steps
+  timestep: 0.2                # Discretization step [s] for the tracker
+  q_weights: [1.5, 1.0, 0.5, 0.2] # State cost weights [ex, ey, epsi, ev] or similar ordering
+  r_weights: [0.1, 0.05]       # Control cost weights [steer_rate, accel] (example ordering)
+  cruise_speed: 5.0            # Desired cruise speed [m/s]
+  slowdown_radius: 4.0         # Distance [m] before goal to start slowing down
+
+vehicle:
+  wheelbase: 2.7               # Rear-to-front axle distance [m] (bicycle model)
+  max_steer: 0.5               # Max steering angle [rad]
+  max_accel: 2.5               # Max longitudinal acceleration [m/s^2]
+  max_decel: -4.0              # Max braking (negative accel) [m/s^2]
+
+simulation:
+  dt: 0.1                      # Sim integration step [s]
+  duration: 12.0               # Total sim time [s]
+  log_states: false            # Persist states to file (if supported)
+
+visualization:
+  enable_plots: true           # Produce static plots
+  animate: true                # Produce animation of the run
+  dashboard: false             # Optional live dashboard (if supported)
+  output_dir: artifacts/conservative  # Output directory for this profile
+  plot_filename: run.png
+  animation_filename: run.gif
+  map_png: artifacts/maps/conservative.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration.gif
+  vehicle_draw:
+    wheelbase: 2.7             # Drawn geometry; can differ from model for emphasis
+    width: 1.65
+    length: 4.4
+    front_overhang: 0.9
+    rear_overhang: 0.9
+    wheel_track: 1.5
+    tire_radius: 0.35
+    tire_width: 0.25

@@ -1,0 +1,63 @@
+# File: config_truck.yaml
+# Purpose: Heavy truck/lorry: large footprint, limited steering, conservative speeds.
+start: [5.0, 5.0, 0.0]
+goal: [72.0, 32.0, 0.0]
+obstacles: []
+
+map:
+  resolution: 0.2
+  obstacle_inflation: 1.6
+  safety_margin: 1.3
+  validate_corridor: true
+  bitmap_path: maps/map_raw.png
+  origin: [0.0, 0.0]
+
+planner:
+  sample_count: 650
+  connection_radius: 11.0
+  goal_bias: 0.22
+  rewiring: true
+  pruning: true
+  smoothing: true
+  nominal_speed: 4.0
+
+tracker:
+  horizon: 14
+  timestep: 0.2
+  q_weights: [1.8, 1.3, 0.6, 0.25]
+  r_weights: [0.1, 0.05]
+  cruise_speed: 5.0
+  slowdown_radius: 7.0
+
+vehicle:
+  wheelbase: 3.8
+  max_steer: 0.35
+  max_accel: 1.5
+  max_decel: -4.0
+
+simulation:
+  dt: 0.1
+  duration: 16.0
+  log_states: false
+
+visualization:
+  enable_plots: true
+  animate: true
+  dashboard: false
+  output_dir: artifacts/truck
+  plot_filename: run_truck.png
+  animation_filename: run_truck.gif
+  map_png: artifacts/maps/truck.png
+  show_planner_debug: true
+  planner_debug_filename: fmt_debug_truck.png
+  animate_planner: true
+  planner_animation_filename: fmt_exploration_truck.gif
+  vehicle_draw:
+    wheelbase: 3.8
+    width: 2.45
+    length: 8.5
+    front_overhang: 1.1
+    rear_overhang: 1.6
+    wheel_track: 2.0
+    tire_radius: 0.48
+    tire_width: 0.35
